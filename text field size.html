@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+Rafal Balcerzak 3TE<br>
+<input type="text" id="Text"><br>
+
+<button onclick="dodaj10()">++</button>
+<button onclick="dodaj()">+</button>
+<button onclick="wypisz()">Wypisz</button>
+<button onclick="odejmij()">-</button>
+<button onclick="odejmij10()">--</button>
+<p id="rozmiar"></p>
+<p id="zawartosc"></p>
+<script>
+var size=document.getElementById("Text").size;
+var rozmiar = document.getElementById("Text").size;
+    document.getElementById("rozmiar").innerHTML ="Aktualny rozmiar pola: "+ rozmiar;
+	
+function dodaj() {
+	if (size >= 100){
+	alert("Za duze :(");
+	}
+	else{
+    size = size +5;
+	document.getElementById("Text").size= size;
+	var rozmiar = document.getElementById("Text").size;
+    document.getElementById("rozmiar").innerHTML ="Aktualny rozmiar pola: "+ rozmiar;
+	}
+}
+
+function dodaj10() {
+	if (size >= 95){
+	alert("Za duze :(");
+	}
+	else{
+    size = size +10;
+	document.getElementById("Text").size= size;
+	var rozmiar = document.getElementById("Text").size;
+    document.getElementById("rozmiar").innerHTML ="Aktualny rozmiar pola: "+ rozmiar;
+	}
+}
+
+function odejmij() {
+	if (size <= 5){
+    alert("Za male :(");
+	}
+	else{
+	size = size -5;
+	document.getElementById("Text").size= size;
+	var rozmiar = document.getElementById("Text").size;
+    document.getElementById("rozmiar").innerHTML ="Aktualny rozmiar pola: "+ rozmiar;
+
+	}
+}
+function odejmij10() {
+	if (size <=10){
+    alert("Za male :(");
+	}
+	else{
+	size = size -10;
+	document.getElementById("Text").size= size;
+	var rozmiar = document.getElementById("Text").size;
+    document.getElementById("rozmiar").innerHTML ="Aktualny rozmiar pola: "+ rozmiar;
+
+	}
+}
+
+function wypisz(){
+	document.getElementById("zawartosc").innerHTML =document.getElementById("Text").value;
+	}
+</script>
+
+</body>
+</html>
