@@ -12,7 +12,7 @@ Rafal Balcerzak 3TE<br>
 <p id="demo2"></p>
 <p id="demo3"></p>
 
-<p id="dec"></p>
+<p id="rgb"></p>
 
 
 <script>
@@ -26,7 +26,9 @@ function hexToRgb() {
 	var dec1 = parseInt(res1, 16);
 	var dec2 = parseInt(res2, 16);
 	var dec3 = parseInt(res3, 16);
-	document.getElementById("dec").innerHTML ="rgb("+ dec1+ ", "+ dec2 + ", " + dec3 + ")";
+	document.getElementById("rgb").innerHTML ="rgb("+ dec1+ ", "+ dec2 + ", " + dec3 + ")";
+	
+	document.body.style.backgroundColor = "#"+str; 
 }
 </script>
 
