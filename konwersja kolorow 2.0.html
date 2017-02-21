@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8" /> 
+    <style type="text/css">
+         *{margin:0; padding: 0;}
+        div{
+            font-family: Tahoma, Geneva, sans-serif;
+            font-size: 25px; 
+            text-align: center;
+            color: white;
+        }
+        
+        .kontener{ 
+            margin: 5px
+        }
+        
+        #kontener{
+            position: absolute;
+            width: 360px;
+            height: 200px;
+            margin-top: calc(50vh - 100px);
+            margin-left: calc(50% - 182px);
+             border: 2px solid #3498db;
+            background-color: rgba(44, 62, 80, 0.5);
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        #kontener:hover{
+            background-color: #2c3e50 }
+        
+        .button {
+            background-color: none;
+            border: 2px solid #3498db;
+            padding: 5px; 
+            text-align: center;
+            display: inline-block;
+            font-size: 25px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        
+        .button:hover {
+            background-color: #3498db;
+            padding: 5px; 
+            text-align: center;
+            display: inline-block;
+            font-size: 25px;
+            cursor: pointer;
+    
+        }
+        
+        input{
+            font-size: 25px;
+            text-align: center;
+            border: none; 
+            background-color: rgba(0,0,0,0);
+            color: white;
+            
+        }
+    </style>
+</head>
+    
+<body style="background-color: rgb(44, 62, 80);">
+    
+<div id="kontener">
+    <div class="kontener" id="imie">                            Rafał Balcerzak</div>
+    <div class="kontener" id="pole">                            #<input type="text" id="Text" placeholder="2c3e50" size="3" maxlength="6"></div>
+    <div class="button" id="przycisk" onclick="hexToRgb()">     Konwertuj</div>
+
+    <div class="kontener" id="rgb">                             RGB(44, 62, 80)</div>
+    <div class="kontener" id="rgbprocent">                      RGB(17%, 24%, 31%)</div>
+</div>
+    
+<script>
+function hexToRgb() {
+    var str = document.getElementById("Text").value;
+	
+    var res1 = str.slice(0, 2);
+    var res2 = str.slice(2, 4);
+    var res3 = str.slice(4, 6);
+    
+	var dec1 = parseInt(res1, 16);
+	var dec2 = parseInt(res2, 16);
+	var dec3 = parseInt(res3, 16);
+	
+    document.getElementById("rgb").innerHTML ="RGB("+ dec1+ ", "+ dec2 + ", " + dec3 + ")";
+	
+    document.body.style.backgroundColor = "#"+str;
+    document.body.style.kontener.backgroundColor = rgba(44, 62, 80, 0.5);
+    var procentr= dec1*100/255;
+    var procentg= dec2*100/255;
+    var procentb= dec3*100/255;
+    document.getElementById("rgbprocent").innerHTML ="RGB("+ procentr.toFixed(0)+ "%, "+ procentg.toFixed(0) + "%, " + procentb.toFixed(0) + "%)";
+    
+}
+</script>
+
+</body>
+</html>
