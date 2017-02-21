@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+Rafal Balcerzak 3TE<br>
+#<input type="text" id="Text" placeholder="ff00ff"><br>
+
+<button onclick="hexToRgb()">Konwertuj</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<p id="dec"></p>
+
+
+<script>
+function hexToRgb() {
+    var str = document.getElementById("Text").value;
+	
+    var res1 = str.slice(0, 2);
+    var res2 = str.slice(2, 4);
+    var res3 = str.slice(4, 6);
+
+	var dec1 = parseInt(res1, 16);
+	var dec2 = parseInt(res2, 16);
+	var dec3 = parseInt(res3, 16);
+	document.getElementById("dec").innerHTML ="rgb("+ dec1+ ", "+ dec2 + ", " + dec3 + ")";
+}
+</script>
+
+</body>
+</html>
+
