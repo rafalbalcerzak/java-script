@@ -1,0 +1,63 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+Rafal Balcerzak 3TE<br>
+<p>Zawartość tabeli wpisanej w kodzie:</p>    
+<p id="zawrtosctab1"></p>
+<p>Aktualny rozmiar tabeli: 4</p><br>
+    
+<p>Tabla do której dodoajemy kolejne wartości:</p>
+<input type="text" id="tabela2txt">
+<button onclick="tab2()">Dodaj do tabeli</button><br>
+<p id="zawrtosctab2"></p>
+<p id="wielkosctab2">Aktualny rozmiar tabeli: 0</p><br>
+
+<p>Tabla która wypisuje podaną ilość wielokrotności liczby 2:</p>
+<p>Ile wielokrotności chcesz wypisać?</p>
+<input type="text" id="tabela3txt">
+<button onclick="tab3()">Wypisz</button><br>
+<p id="zawrtosctab3"></p>
+<p id="wielkosctab3">Aktualny rozmiar tabeli: 0</p><br>
+    
+<script>
+var tabela1 = ['tab1a', 'tab1b','tab1c','tab1d'];
+document.getElementById("zawrtosctab1").innerHTML =tabela1;
+    
+var x = 0;
+var tabela2= new Array();   
+function tab2(){
+    tabela2[x]=document.getElementById("tabela2txt").value;
+    
+    document.getElementById("zawrtosctab2").innerHTML =tabela2;
+    x++;
+    document.getElementById("wielkosctab2").innerHTML ="Aktualny rozmiar tabeli: "+tabela2.length;
+};
+
+var tabela3= new Array();
+    
+function tab3(){
+    var ile = parseInt(document.getElementById("tabela3txt").value, 10);
+    
+    var x = 1;
+    var z = 0;
+    var q = 0;
+    while(x <= ile){
+        tabela3[z]=(2 + q);
+        z++;
+        q+=2;
+        x++;
+    };
+    document.getElementById("zawrtosctab3").innerHTML =tabela3;
+    document.getElementById("wielkosctab3").innerHTML ="Aktualny rozmiar tabeli: "+tabela3.length;
+};
+    
+    
+    
+</script>
+
+</body>
+</html>
