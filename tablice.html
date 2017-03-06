@@ -1,31 +1,65 @@
-<meta charset="UTF-8">
 <!DOCTYPE html>
 
 <html>
 <head>
+    <meta charset="UTF-8">
+<style>
+    div{margin: 10px auto; font-family: verdana;}
+</style>
 </head>
 <body>
-Rafal Balcerzak 3TE<br>
-<p>Zawartość tabeli wpisanej w kodzie:</p>    
+    <div style="background-color: #f1c40f; width: 400px; text-align: center;">Rafal Balcerzak 3TE</div>
+<div style="background-color: #2ecc71; width: 800px; text-align: center;">
+<p>Zmiana zawartości tabeli wpisanej w kodzie:</p>   
+<input type="text" id="ktory" placeholder="Który ">
+<input type="text" id="naco" placeholder="Na co">
+<button onclick="tab1()">Edytuj</button><br>
 <p id="zawrtosctab1"></p>
-<p>Aktualny rozmiar tabeli: 4</p><br>
+<p id="wielkosctab1">Aktualny rozmiar tabeli: 4</p>
+</div>
     
-<p>Tabla do której dodoajemy kolejne wartości:</p>
-<input type="text" id="tabela2txt">
+<div style="background-color: #3498db; width: 800px; text-align: center;">    
+<p>Tablica do której dodajemy kolejne wartości:</p>
+<input type="text" id="tabela2txt" placeholder="Wartość do dodania">
 <button onclick="tab2()">Dodaj do tabeli</button><br>
 <p id="zawrtosctab2"></p>
-<p id="wielkosctab2">Aktualny rozmiar tabeli: 0</p><br>
-
-<p>Tabla która wypisuje podaną ilość wielokrotności liczby 2:</p>
+<p id="wielkosctab2">Aktualny rozmiar tabeli: 0</p>
+</div>
+    
+<div style="background-color: #9b59b6; width: 800px; text-align: center; ">
+<p>Tablica która wypisuje podaną ilość wielokrotności liczby 2:</p>
 <p>Ile wielokrotności chcesz wypisać?</p>
-<input type="text" id="tabela3txt">
+<input type="text" id="tabela3txt" placeholder="ilość wielokrotności">
 <button onclick="tab3()">Wypisz</button><br>
 <p id="zawrtosctab3"></p>
-<p id="wielkosctab3">Aktualny rozmiar tabeli: 0</p><br>
+<p id="wielkosctab3">Aktualny rozmiar tabeli: 0</p>
+</div>    
+    
+<div style="background-color: #e74c3c; width: 800px; text-align: center;">    
+<p>Tablica która wyświetli podaną ilość randomowych liczb z podanego zakresu:</p>
+<p>Ile wielokrotności chcesz wypisać?</p>
+<input type="text" id="min" placeholder="Minimum">
+<input type="text" id="max" placeholder="Maximum">
+<input type="text" id="ile" placeholder="Ile liczb wypisać">
+<button onclick="tab4()">Wypisz</button><br>
+<p id="zawrtosctab4"></p>
+<p id="wielkosctab4">Aktualny rozmiar tabeli: 0</p>
+</div>
     
 <script>
-var tabela1 = ['tab1a', 'tab1b','tab1c','tab1d'];
+var tabela1 = ['tab1a ', 'tab1b ','tab1c ','tab1d '];
 document.getElementById("zawrtosctab1").innerHTML =tabela1;
+
+function tab1(){
+    var ktory = parseInt(document.getElementById("ktory").value, 10);
+    if(ktory >4 ){
+        alert("tablica zawiera tylko 4 argumenty!");
+    }else{
+    tabela1[ktory - 1] = document.getElementById("naco").value;
+    document.getElementById("zawrtosctab1").innerHTML =tabela1;
+    document.getElementById("wielkosctab1").innerHTML ="Aktualny rozmiar tabeli: "+tabela1.length;
+    }
+}
     
 var x = 0;
 var tabela2= new Array();   
@@ -54,6 +88,26 @@ function tab3(){
     document.getElementById("zawrtosctab3").innerHTML =tabela3;
     document.getElementById("wielkosctab3").innerHTML ="Aktualny rozmiar tabeli: "+tabela3.length;
 };
+    
+var tabela4= new Array();
+function tab4(){
+
+    var max = parseInt(document.getElementById("max").value, 10);
+    var min = parseInt(document.getElementById("min").value, 10);
+    var ile = parseInt(document.getElementById("ile").value, 10);
+    var x = 1;
+    var z = 0; 
+    while(x <= ile){
+        var a =Math.random() * (max - min) + min;
+        tabela4[z]= a.toFixed(0);
+        x++;
+        z++;
+    };
+
+    document.getElementById("zawrtosctab4").innerHTML =tabela4;
+    document.getElementById("wielkosctab4").innerHTML ="Aktualny rozmiar tabeli: "+tabela4.length;
+};
+
     
     
     
