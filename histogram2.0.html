@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>rafal balcerzak</title>
+<style>
+    div{margin: 5px auto; font-family: verdana;}
+    .histogram{
+      color: white;
+
+    }
+    
+     .histogramh{
+      color: white;
+        text-align: left;
+
+    }
+    p{
+        color: #2c3e50;
+    }
+
+</style>
+</head>
+    
+<body>
+<div style="background-color: #9b59b6; width: 400px; text-align: center; color: white">---Rafal Balcerzak 3TE---</div>
+    <div style="background-color: #2ecc71; width: 800px; text-align: center;">
+<p>Ilość liczb w zakresie 0-100 w podanych przedziałach</p>
+    
+<p>Ile liczb chcesz wylosować?</p>
+<input type="text" id="ile" placeholder="Ile" >
+<button onclick="losowanie()">Losuj</button><br>
+    
+<div style="width: 600px; margin: 0 auto; clear: both">
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #3498db; float: left">0-10</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #2980b9; float: left">11-20</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #3498db; float: left">21-30</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #2980b9; float: left">31-40</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #3498db; float: left">41-50</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #2980b9; float: left">51-60</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #3498db; float: left">61-70</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #2980b9; float: left">71-80</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #3498db; float: left">81-90</div>
+<div class="histogram"  style="width: 60px; height: 0 px; background-color: #2980b9; float: left">91-100</div>
+</div>
+    
+<div style="width: 600px; margin: 0 auto; clear: both">
+<div class="histogram" id="0-10" style="width: 60px; height: 0 px; background-color: #3498db; float: left"></div>
+<div class="histogram" id="11-20" style="width: 60px; height: 0 px; background-color: #2980b9; float: left"></div>
+<div class="histogram" id="21-30" style="width: 60px; height: 0 px; background-color: #3498db; float: left"></div>
+<div class="histogram" id="31-40" style="width: 60px; height: 0 px; background-color: #2980b9; float: left"></div>
+<div class="histogram" id="41-50" style="width: 60px; height: 0 px; background-color: #3498db; float: left"></div>
+<div class="histogram" id="51-60" style="width: 60px; height: 0 px; background-color: #2980b9; float: left"></div>
+<div class="histogram" id="61-70" style="width: 60px; height: 0 px; background-color: #3498db; float: left"></div>
+<div class="histogram" id="71-80" style="width: 60px; height: 0 px; background-color: #2980b9; float: left"></div>
+<div class="histogram" id="81-90" style="width: 60px; height: 0 px; background-color: #3498db; float: left"></div>
+<div class="histogram" id="91-100" style="width: 60px; height: 0 px; background-color: #2980b9; float: left"></div>
+
+<div style="height: 300px; width: 10px; margin: 0 0 ; clear: both">
+<div class="histogramh" id="0-10h" style="width: 0px; height: 20 px; background-color: #3498db; "></div>
+<div class="histogramh" id="11-20h" style="width: 0px; height: 20 px; background-color: #2980b9; "></div>
+<div class="histogramh" id="21-30h" style="width: 0px; height: 20 px; background-color: #3498db; "></div>
+<div class="histogramh" id="31-40h" style="width: 0px; height: 20 px; background-color: #2980b9; "></div>
+<div class="histogramh" id="41-50h" style="width: 0px; height: 20 px; background-color: #3498db; "></div>
+<div class="histogramh" id="51-60h" style="width: 0px; height: 20 px; background-color: #2980b9; "></div>
+<div class="histogramh" id="61-70h" style="width: 0px; height: 20 px; background-color: #3498db; "></div>
+<div class="histogramh" id="71-80h" style="width: 0px; height: 20 px; background-color: #2980b9; "></div>
+<div class="histogramh" id="81-90h" style="width: 0px; height: 20 px; background-color: #3498db; "></div>
+<div class="histogramh" id="91-100h" style="width: 0px; height: 20 px; background-color: #2980b9; "></div>
+</div>
+<p id="histogram" style="clear: both;"></p>
+</div>
+</div>
+
+<script>
+    var tablica = [0,0,0,0,0,0,0,0,0,0];
+    function losowanie(){
+        var ile = parseInt(document.getElementById("ile").value, 10);
+        for (var x=1; x<=ile; x++){
+            var a = Math.floor((Math.random() * 100) + 0);
+            if(a >=0 && a < 11){
+                tablica[0]=tablica[0] +1;
+            };
+            if(a >=11 && a < 21){
+                tablica[1]=tablica[1] +1;
+            };
+            if(a >=21 && a < 31){
+                tablica[2]=tablica[2] +1;
+            };
+            if(a >=31 && a < 41){
+                tablica[3]=tablica[3] +1;
+            };
+            if(a >=41 && a < 51){
+                tablica[4]=tablica[4] +1;
+            };
+            if(a >=51 && a < 61){
+                tablica[5]=tablica[5] +1;
+            };
+            if(a >=61 && a < 71){
+                tablica[6]=tablica[6] +1;
+            };
+            if(a >=71 && a < 81){
+                tablica[7]=tablica[7] +1;
+            };
+            if(a >=81 && a < 91){
+                tablica[8]=tablica[8] +1;
+            };
+            if(a >= 91){
+                tablica[9]=tablica[9] +1;
+            };
+            
+            
+        };
+        document.getElementById("0-10").style.height = tablica[0]+"px";
+        document.getElementById("0-10").innerHTML =tablica[0];
+        
+        document.getElementById("11-20").style.height = tablica[1]+"px";
+        document.getElementById("11-20").innerHTML =tablica[1];
+        
+        document.getElementById("21-30").style.height = tablica[2]+"px";
+        document.getElementById("21-30").innerHTML =tablica[2];
+        
+        document.getElementById("31-40").style.height = tablica[3]+"px";
+        document.getElementById("31-40").innerHTML =tablica[3];
+        
+        document.getElementById("41-50").style.height = tablica[4]+"px";
+        document.getElementById("41-50").innerHTML =tablica[4];
+        
+        document.getElementById("51-60").style.height = tablica[5]+"px";
+        document.getElementById("51-60").innerHTML =tablica[5];
+        
+        document.getElementById("61-70").style.height = tablica[6]+"px";
+        document.getElementById("61-70").innerHTML =tablica[6];
+        
+        document.getElementById("71-80").style.height = tablica[7]+"px";
+        document.getElementById("71-80").innerHTML =tablica[7];
+        
+        document.getElementById("81-90").style.height = tablica[8]+"px";
+        document.getElementById("81-90").innerHTML =tablica[8];
+        
+        document.getElementById("91-100").style.height = tablica[9]+"px";
+        document.getElementById("91-100").innerHTML =tablica[9]; 
+
+        
+        document.getElementById("0-10h").style.width = tablica[0]+"px";
+        document.getElementById("0-10h").innerHTML =tablica[0] + " (0-10)";
+        
+        document.getElementById("11-20h").style.width = tablica[1]+"px";
+        document.getElementById("11-20h").innerHTML =tablica[1]+ " (11-20)";
+        
+        document.getElementById("21-30h").style.width = tablica[2]+"px";
+        document.getElementById("21-30h").innerHTML =tablica[2]+ " (21-30)";
+        
+        document.getElementById("31-40h").style.width = tablica[3]+"px";
+        document.getElementById("31-40h").innerHTML =tablica[3]+ " (31-40)";
+        
+        document.getElementById("41-50h").style.width = tablica[4]+"px";
+        document.getElementById("41-50h").innerHTML =tablica[4]+ " (41-50)";
+        
+        document.getElementById("51-60h").style.width = tablica[5]+"px";
+        document.getElementById("51-60h").innerHTML =tablica[5]+ " (51-60)";
+        
+        document.getElementById("61-70h").style.width = tablica[6]+"px";
+        document.getElementById("61-70h").innerHTML =tablica[6]+ " (61-70)";
+        
+        document.getElementById("71-80h").style.width = tablica[7]+"px";
+        document.getElementById("71-80h").innerHTML =tablica[7]+ " (71-80)";
+        
+        document.getElementById("81-90h").style.width = tablica[8]+"px";
+        document.getElementById("81-90h").innerHTML =tablica[8]+ " (81-90)";
+        
+        document.getElementById("91-100h").style.width = tablica[9]+"px";
+        document.getElementById("91-100h").innerHTML =tablica[9]+ " (91-100)";
+    };
+    
+  
+</script>
+
+</body>
+    
+</html>
