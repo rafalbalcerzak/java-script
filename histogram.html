@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+<style>
+    div{margin: 10px auto; font-family: verdana;}
+    .histogram{
+      
+    }
+</style>
+</head>
+<body>
+<div style="background-color: #f1c40f; width: 400px; text-align: center;">---Rafal Balcerzak 3TE---</div>
+<div style="background-color: #2ecc71; width: 800px; text-align: center;">
+<p>Zmiana zawartości tabeli wpisanej w kodzie:</p>   
+<input type="text" id="ile" placeholder="Ile liczb chcesz wylosować">
+<button onclick="losowanie()">Losuj</button><br>
+<div style="width: 500px; margin: 0 auto;">
+<div class="histogram" id="0-10" style="width: 50px; height: 0 px; background-color: #3498db; float: left">0</div>
+<div class="histogram" id="11-20" style="width: 50px; height: 0 px; background-color: #2980b9; float: left">0</div>
+<div class="histogram" id="21-30" style="width: 50px; height: 0 px; background-color: #3498db; float: left">0</div>
+<div class="histogram" id="31-40" style="width: 50px; height: 0 px; background-color: #2980b9; float: left">0</div>
+<div class="histogram" id="41-50" style="width: 50px; height: 0 px; background-color: #3498db; float: left">0</div>
+<div class="histogram" id="51-60" style="width: 50px; height: 0 px; background-color: #2980b9; float: left">0</div>
+<div class="histogram" id="61-70" style="width: 50px; height: 0 px; background-color: #3498db; float: left">0</div>
+<div class="histogram" id="71-80" style="width: 50px; height: 0 px; background-color: #2980b9; float: left">0</div>
+<div class="histogram" id="81-90" style="width: 50px; height: 0 px; background-color: #3498db; float: left">0</div>
+<div class="histogram" id="91-100" style="width: 50px; height: 0 px; background-color: #2980b9; float: left">0</div>
+
+
+</div>
+<p id="histogram" style="clear: both;"></p>
+</div>
+    
+
+<script>
+    var tablica = [0,0,0,0,0,0,0,0,0,0];
+    function losowanie(){
+        var ile = parseInt(document.getElementById("ile").value, 10);
+        for (var x=0; x<=ile; x++){
+            var a = Math.floor((Math.random() * 100) + 1);
+            if(a >=0 && a < 10){
+                tablica[0]=tablica[0] +1;
+            };
+            if(a >=10 && a < 20){
+                tablica[1]=tablica[1] +1;
+            };
+            if(a >=20 && a < 30){
+                tablica[2]=tablica[2] +1;
+            };
+            if(a >=30 && a < 40){
+                tablica[3]=tablica[3] +1;
+            };
+            if(a >=40 && a < 50){
+                tablica[4]=tablica[4] +1;
+            };
+            if(a >=50 && a < 60){
+                tablica[5]=tablica[5] +1;
+            };
+            if(a >=60 && a < 70){
+                tablica[6]=tablica[6] +1;
+            };
+            if(a >=70 && a < 80){
+                tablica[7]=tablica[7] +1;
+            };
+            if(a >=80 && a < 90){
+                tablica[8]=tablica[8] +1;
+            };
+            if(a >= 90){
+                tablica[9]=tablica[9] +1;
+            };
+            
+            
+        };
+        document.getElementById("0-10").style.height = tablica[0]+"px";
+        document.getElementById("0-10").innerHTML =tablica[0];
+        
+        document.getElementById("11-20").style.height = tablica[1]+"px";
+        document.getElementById("11-20").innerHTML =tablica[1];
+        
+        document.getElementById("21-30").style.height = tablica[2]+"px";
+        document.getElementById("21-30").innerHTML =tablica[2];
+        
+        document.getElementById("31-40").style.height = tablica[3]+"px";
+        document.getElementById("31-40").innerHTML =tablica[3];
+        
+        document.getElementById("41-50").style.height = tablica[4]+"px";
+        document.getElementById("41-50").innerHTML =tablica[4];
+        
+        document.getElementById("51-60").style.height = tablica[5]+"px";
+        document.getElementById("51-60").innerHTML =tablica[5];
+        
+        document.getElementById("61-70").style.height = tablica[6]+"px";
+        document.getElementById("61-70").innerHTML =tablica[6];
+        
+        document.getElementById("71-80").style.height = tablica[7]+"px";
+        document.getElementById("71-80").innerHTML =tablica[7];
+        
+        document.getElementById("81-90").style.height = tablica[8]+"px";
+        document.getElementById("81-90").innerHTML =tablica[8];
+        
+        document.getElementById("91-100").style.height = tablica[9]+"px";
+        document.getElementById("91-100").innerHTML =tablica[9];
+
+    };
+    
+  
+</script>
+
+</body>
+</html>
